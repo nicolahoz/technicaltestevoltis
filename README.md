@@ -1,16 +1,23 @@
-# Evoltis Prueba Técnica
+# Proyecto Angular + .NET
 
-Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) versión 16.2.0.
+Este repositorio contiene un backend en .NET 8 y un frontend en Angular.
 
-## Development
-Recuerda ejecutar `npm install`!
+## Backend (.NET)
 
-## Development server
+1. Abrir la solución en tu IDE favorito.
+2. Restaurar paquetes:
+    ```bash
+    dotnet restore
+3. Aplicar migraciones de la base de datos:
+    cd Infrastructure
+    dotnet ef database update
+4. Ejecutar el backend:
+    dotnet run --project ../technical-tests-backend-ssr
 
-Ejecute `ng serve` para un servidor de desarrollo. Navegue hasta `http://localhost:4200/`. La aplicación se recargará automáticamente si cambia alguno de los archivos fuente.
+## Backend (.NET)
 
-## Code scaffolding
-
-Ejecute `ng generate component component-name` para generar un nuevo componente. También puedes usar `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
+1. Instalar dependencias:
+    npm install
+2. Ejecutar la aplicación:
+    ng serve -o
 
