@@ -13,6 +13,8 @@ Este repositorio contiene un backend en .NET 8 y un frontend en Angular.
     dotnet ef database update
 4. Ejecutar el backend:
     dotnet run --project ../technical-tests-backend-ssr
+5. Ejectuar tests:
+    dotnet test (Parado en la carpeta Test)
 
 ## Backend (.NET)
 
