@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "5ZDAd1bKTUk=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Nicolas Lahoz\\Desktop\\P evoltis\\Data\\Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Nicolas Lahoz\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\Nicolas Lahoz\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Nicolas Lahoz\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

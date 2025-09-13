@@ -1,0 +1,23 @@
+<div class="flex w-full p-4 gap-2" style="flex-direction: column;" *ngIf="formState$ | async as formState">
+  <div class="flex gap-2">
+    <div class="flex gap-2" style="flex-direction: column;">
+      <label for="name">Nombre</label>
+      <input #nameInput pInputText id="name" type="text" [ngrxFormControlState]="formState.controls.name"
+        ngrxDefaultViewAdapter />
+      <div *ngIf="formState.controls.name.isInvalid && formState.controls.name.isTouched" class="text-red-500 text-sm">
+        <div *ngIf="formState.controls.name.errors?.required">Nombre requerido</div>
+      </div>
+    </div>
+    <div class="flex gap-2" style="flex-direction: column;">
+      <label for="price">Precio</label>
+      <p-inputNumber id="price" [ngrxFormControlState]="formState.controls.price" mode="currency" currency="USD"
+        [useGrouping]="false" locale="en-US" (onFocus)="onPriceFocus($event)"></p-inputNumber>
+    </div>
+  </div>
+
+  <div class="flex w-full justify-end gap-2"
+    style="display: flex; width: 100vw; justify-content: end; margin-top: 2rem;">
+    <p-button (onClick)="cancel()" icon="pi pi-times" label="Cancelar" severity="secondary" />
+    <p-button [disabled]="formState.isInvalid" (onClick)="save(formState.value)" icon="pi pi-check" label="Guardar" />
+  </div>
+</div>

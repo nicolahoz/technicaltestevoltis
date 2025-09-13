@@ -1,0 +1,63 @@
+<div class="flex gap-2" style="flex-direction: column;" *ngIf="formState$ | async as formState">
+  <div class="flex gap-4">
+    <div class="flex flex-col" style="flex-direction: column;">
+      <label for="name">Nombre</label>
+      <input #nameInput pInputText id="name" [ngrxFormControlState]="formState.controls.name" ngrxDefaultViewAdapter />
+      <div *ngIf="formState.controls.name.isInvalid && formState.controls.name.isTouched"
+        class="text-red-500 text-sm">
+        <div *ngIf="formState.controls.name.errors?.required">Nombre requerido</div>
+      </div>
+    </div>
+    <div class="flex flex-col" style="flex-direction: column;">
+      <label for="email">Email</label>
+      <input pInputText id="email" [ngrxFormControlState]="formState.controls.email" ngrxDefaultViewAdapter />
+      <div *ngIf="formState.controls.email.isInvalid && formState.controls.email.isTouched"
+        class="text-red-500 text-sm">
+        <div *ngIf="formState.controls.email.errors?.pattern">Formato de email inválido</div>
+      </div>
+    </div>
+    <div class="flex flex-col" style="flex-direction: column;">
+      <label for="phone">Teléfono</label>
+      <input pInputText id="phone" [ngrxFormControlState]="formState.controls.phone" ngrxDefaultViewAdapter />
+      <div *ngIf="formState.controls.phone.isInvalid && formState.controls.phone.isTouched"
+        class="text-red-500 text-sm">
+        <div *ngIf="formState.controls.phone.errors?.pattern">Formato de telefono inválido</div>
+      </div>
+    </div>
+    <div class="flex flex-col" style="flex-direction: column;">
+      <label>&nbsp;</label>
+      <p-button label="Agregar dirección" icon="pi pi-plus" class="flex" (click)="addAddress()" severity="secondary"
+        [outlined]="true" />
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-2 overflow-y-auto" style="flex-direction: column; max-height: 500px;">
+    <ng-container *ngFor="let addr of formState.controls.addresses.controls; let i = index; trackBy: trackById">
+      <p-card class="rounded-xl shadow-md p-4">
+        <div class="flex gap-2">
+          <div class="flex" style="flex-direction: column;">
+            <label>Calle</label>
+            <input #streetInput pInputText [ngrxFormControlState]="addr.controls.street" ngrxDefaultViewAdapter />
+          </div>
+          <div class="flex flex-col" style="flex-direction: column;">
+            <label>Ciudad</label>
+            <input pInputText [ngrxFormControlState]="addr.controls.city" ngrxDefaultViewAdapter />
+          </div>
+          <div class="flex flex-col" style="flex-direction: column;">
+            <label>Código Postal</label>
+            <input pInputText [ngrxFormControlState]="addr.controls.zipCode" ngrxDefaultViewAdapter />
+          </div>
+          <div class="flex flex-col" style="flex-direction: column;">
+            <label>&nbsp;</label>
+            <p-button label="Eliminar" icon="pi pi-trash" severity="danger" (click)="removeAddress(i)" />
+          </div>
+        </div>
+      </p-card>
+    </ng-container>
+  </div>
+
+  <div class="flex justify-end gap-2 mt-4" style="justify-content: end;">
+    <p-button (onClick)="cancel()" icon="pi pi-times" label="Cancelar" severity="secondary" />
+    <p-button [disabled]="formState.isInvalid" (onClick)="save(formState.value)" icon="pi pi-check" label="Guardar" />
+  </div>
+</div>

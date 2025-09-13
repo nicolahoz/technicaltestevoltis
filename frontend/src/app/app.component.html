@@ -1,0 +1,55 @@
+<div class="flex h-screen">
+  <div class="hidden h-full md:flex md:w-64 bg-surface-50 border-r shadow-sm flex-col" style="flex-direction: column;">
+    <div class="p-4 flex items-center gap-2 border-b">
+      <svg
+        width="33"
+        height="35"
+        viewBox="0 0 33 35"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="block"
+      >
+        <path
+          d="M15.1934 0L0.0391 5.3829L2.3505 25.3417L15.1934 32.427L28.0364 25.3417L30.3478 5.3829L15.1934 0Z"
+          fill="var(--primary-color)"
+        />
+      </svg>
+      <span class="font-semibold text-xl text-primary">Your Logo</span>
+    </div>
+
+    <p-menu
+      [model]="items"
+      [style]="{ 'width': '100%', 'border': 'none', 'font-size': '20px' }"
+      styleClass="p-0"
+    ></p-menu>
+  </div>
+
+  <p-sidebar [(visible)]="mobileSidebar" class="md:hidden" [modal]="true">
+    <div class="p-4 flex items-center gap-2 border-b">
+      <span class="font-semibold text-xl text-primary">Tech test</span>
+    </div>
+    <p-menu
+      [model]="items"
+      [style]="{ 'width': '100%', 'border': 'none' }"
+      (onMenuItemClick)="mobileSidebar = false"
+    ></p-menu>
+  </p-sidebar>
+
+  <div class="flex-1 flex flex-col">
+    <div class="flex md:hidden items-center p-4 border-b">
+      <button
+        pButton
+        type="button"
+        icon="pi pi-bars"
+        class="p-button-text"
+        (click)="mobileSidebar = true"
+      ></button>
+      <span class="ml-3 font-bold text-lg">App</span>
+    </div>
+
+    <div class="flex-1 p-4 overflow-y-auto">
+      <p-toast/>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
