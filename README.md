@@ -1,6 +1,6 @@
 # Proyecto Angular + .NET
 
-Este repositorio contiene un backend en .NET 8 y un frontend en Angular.
+Este repositorio contiene un backend en .NET 8 y un frontend en Angular con ngrx-forms y primeng
 
 ## Backend (.NET)
 
